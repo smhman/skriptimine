@@ -1,0 +1,8 @@
+#!/bin/bash
+# Eesmärk: kuvada tänane kuupäev, kellaaeg ja jooksva kuu kalender
+
+echo "Today is $(date +"%A, %B %d, %Y")"
+echo "Time is $(date +"%H:%M")"
+echo
+echo "Calendar of $(date +"%B %Y")"
+cal | tail -n 7
