@@ -1,0 +1,14 @@
+#!/bin/bash
+# Eesmärk: arvutada ühe nädala eeldatav ajakulu (ülespoole ümardatult)
+
+read -p "Sisesta ainepunktide arv (täisarv): " ap
+read -p "Sisesta nädalate arv (täisarv): " nadalad
+
+# kogu tunnid
+kogu=$(( ap * 26 ))
+
+# jaga nädalate arvuga; ümarda ÜLESPOOLE bc abil
+osa=$(echo "scale=2; $kogu / $nadalad" | bc)
+ymardatud=$(echo "($osa + 0.999)/1" | bc)
+
+echo "Ühe nädala eeldatav ajakulu on ${ymardatud} tundi."
