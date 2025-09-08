@@ -1,6 +1,7 @@
 #!/bin/bash
-# See skript tervitab kasutajat tema kasutajanimega
+# See skript tervitab kasutajat ja kuvab nime algustähe suure tähega
 
+name=$(echo "$USER" | sed 's/.*/\u&/')
 echo -n "Tere, "
-echo -n $USER
+echo -n "$name"
 echo "!"
