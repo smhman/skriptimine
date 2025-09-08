@@ -1,5 +1,5 @@
 #!/bin/bash
-# Eesmärk: arvutada täis busse ja maha jäävaid inimesi
+# Eesmärk: arvuta täis bussid ja maha jäävad inimesed
 
 read -p "Mitu reisijat on grupis? " reisijaid
 read -p "Mitu kohta on ühes bussis? " kohad
