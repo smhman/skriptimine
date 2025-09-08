@@ -1,0 +1,16 @@
+#!/bin/bash
+# Eesmärk: arvutada täis busse ja maha jäävaid inimesi
+
+read -p "Mitu reisijat on grupis? " reisijaid
+read -p "Mitu kohta on ühes bussis? " kohad
+
+if [ "$kohad" -le 0 ]; then
+  echo "Kohtade arv peab olema positiivne täisarv."
+  exit 1
+fi
+
+tais=$(( reisijaid / kohad ))
+yle=$(( reisijaid % kohad ))
+
+echo "Täielikult täidetud busse: $tais"
+echo "Mahajäänud inimesi: $yle"
