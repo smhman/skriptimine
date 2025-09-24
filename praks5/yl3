@@ -1,0 +1,22 @@
+#!/bin/bash
+# Skript tervitab kasutajat sisestatud kellaaja põhjal
+
+echo -n "Sisesta aja väärtus (0-23): "
+read aeg
+
+if ! [[ "$aeg" =~ ^[0-9]+$ ]]; then
+    echo "Palun sisesta täisarv 0 kuni 23."
+    exit 1
+fi
+
+if [ $aeg -ge 6 -a $aeg -lt 12 ]; then
+    echo "Tere hommikust"
+elif [ $aeg -ge 12 -a $aeg -lt 18 ]; then
+    echo "Tere päevast"
+elif [ $aeg -ge 18 -a $aeg -lt 22 ]; then
+    echo "Tere õhtust"
+elif [ $aeg -ge 22 -o $aeg -lt 6 ]; then
+    echo "Head ööd!"
+else
+    echo "Vigane sisend"
+fi
