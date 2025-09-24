@@ -1,0 +1,22 @@
+#!/bin/bash
+# Skript arvutab, mitu bussi on vaja, kui on antud reisijate arv ja kohtade arv bussis
+
+echo -n "Sisesta reisijate arv: "
+read reisijad
+echo -n "Sisesta kohtade arv bussis: "
+read kohad
+
+# Kontrollime, et mõlemad oleks täisarvud
+if ! [[ "$reisijad" =~ ^[0-9]+$ && "$kohad" =~ ^[0-9]+$ ]]; then
+    echo "Palun sisesta ainult positiivsed täisarvud."
+    exit 1
+fi
+
+bussid=$((reisijad / kohad))
+ylejaanud=$((reisijad % kohad))
+
+if [ $ylejaanud -ne 0 ]; then
+    bussid=$((bussid + 1))
+fi
+
+echo "Kokku on vaja $bussid bussi"

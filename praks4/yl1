@@ -1,0 +1,17 @@
+#!/bin/bash
+# Küsimus: küsib ühe täisarvu kasutajalt ja väljastab, kas arv on paaris või paaritu.
+
+read -p "Sisesta suvaline täisarv: " ARV
+
+# kontrolli, kas sisend on täisarv (võib olla ka negatiivne)
+if ! [[ "$ARV" =~ ^-?[0-9]+$ ]]; then
+  echo "Palun sisesta täisarv."
+  exit 1
+fi
+
+if (( ARV % 2 == 0 )); then
+  echo "Antud arv on paaris"
+else
+  echo "Antud arv on paaritu"
+fi
+

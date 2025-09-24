@@ -1,0 +1,22 @@
+#!/bin/bash
+# Skript kontrollib käsurea parameetrina antud täisarvu paarsust
+
+if [ $# -ne 1 ]; then
+    echo "Käivita see skript koos arvuga, mille paarsust soovid kontrollida."
+    echo "Näiteks: ./paarsus 3"
+    exit 1
+fi
+
+arv=$1
+
+# Kontrollime, kas sisend on täisarv (lubame ka miinusmärgi)
+if ! [[ "$arv" =~ ^-?[0-9]+$ ]]; then
+    echo "Palun sisesta täisarv."
+    exit 1
+fi
+
+if [ $((arv % 2)) -eq 0 ]; then
+    echo "Antud arv on paaris"
+else
+    echo "Antud arv on paaritu"
+fi
