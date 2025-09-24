@@ -1,0 +1,21 @@
+#!/bin/bash
+# Skript arvutab arvu numbrite summa
+
+echo -n "Sisesta suvaline täisarv: "
+read arv
+
+if ! [[ "$arv" =~ ^-?[0-9]+$ ]]; then
+    echo "Palun sisesta täisarv."
+    exit 1
+fi
+
+temp=${arv#-}   # eemaldab miinusmärgi
+summa=0
+
+while [ $temp -gt 0 ]; do
+    digit=$((temp % 10))
+    summa=$((summa + digit))
+    temp=$((temp / 10))
+done
+
+echo "Arvu $arv numbrite summa on $summa"
