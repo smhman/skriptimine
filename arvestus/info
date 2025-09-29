@@ -1,0 +1,11 @@
+#!/bin/bash
+# Autor: Priit
+# Faili nimi: info
+# Ülesanne: Skript tervitab kasutajat ja kuvab kuupäeva ning kellaaja.
+
+# Tervitus sisselogitud kasutajale
+echo "Tere, $USER!"
+
+# Kuupäeva ja kellaaja kuvamine
+# Kuju: "Täna on 29.09.2025 kell 15:30"
+echo "Täna on $(date +%d.%m.%Y) kell $(date +%H:%M)"

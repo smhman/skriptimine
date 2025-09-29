@@ -1,0 +1,36 @@
+#!/bin/bash
+# Autor: Priit
+# Faili nimi: kujund
+# Ülesanne: Küsib ridade arvu ja joonistab kahaneva tähekuju.
+
+read -p "Sisesta ridade arv: " ridade_arv
+
+# Kontrollime, kas sisestus on number ja jääb lubatud vahemikku
+if ! [[ "$ridade_arv" =~ ^[0-9]+$ ]]; then
+    echo "Viga: palun sisesta ainult arv."
+    exit 1
+fi
+
+if [ "$ridade_arv" -lt 1 ] || [ "$ridade_arv" -gt 30 ]; then
+    echo "Viga: sisestatud arv peab olema vahemikus 1 kuni 30."
+    exit 1
+fi
+
+# Joonistame kujundi
+for (( i=ridade_arv; i>=1; i-- ))
+do
+    # Lisa algusesse tühikud
+    for (( j=ridade_arv; j>i; j-- ))
+    do
+        echo -n " "
+    done
+    
+    # Tähed
+    for (( k=1; k<=i; k++ ))
+    do
+        echo -n "* "
+    done
+    
+    # Reavahetus
+    echo ""
+done
